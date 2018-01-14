@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dog Food Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="dog-food.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Calculate Your Dog's Daily Feeding</h1>
+	<div>
+		<fieldset>
+			<legend>Select how to handle your dog's weight:</legend>
+			<label class="radio-inline">
+				<input type="radio" name="weight_ratio" id="weight_maintain" value="maintain" checked>Maintain
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="weight_ratio" id="weight_lose" value="lose">Lose
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="weight_ratio" id="weight_gain" value="gain">Gain
+			</label>
+		</fieldset>
+		<fieldset>
+			<legend>Select your dog's age:</legend>
+			<label class="radio-inline">
+				<input type="radio" name="age" id="puppy_0-4" value="puppy_0-4">Puppy 0-4 months
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="age" id="puppy_5-10" value="puppy_5-10">Puppy 5-10 months
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="age" id="adult" value="adult" checked>Adult 10+ months
+			</label>
+		</fieldset>
+		<p>
+			<label>Enter your dog's weight:</label>
+			<input type="text" id="weight" name="dog_weight" placeholder="weight in pounds...">
+		</p>
+		<p>
+			<label for="food">Enter your dog's food:</label>
+			<input type="text" id="food" name="food" list="food_list" placeholder="brand of dog food...">
+			<datalist id="food_list">
+				<select name="food">
+					<option value="Blue Buffalo">Blue Buffalo</option>
+					<option value="Hill's">Hill's</option>
+					<option value="Merrick">Merrick</option>
+					<option value="Nature's">Nature's</option>
+					<option value="Nutro">Nutro</option>
+					<option value="Purina">Purina</option>
+					<option value="Royal Canin">Royal Canin</option>
+				</select>
+			</datalist>
+		</p>
+		<p class="buttoncenter">
+			<button type="submit">Calculate</button>
+		</p>
+		<p class="pcenter">Feed your dog this many cups per day:</p>
+		<p class="pcenter" id="cups">0</p>
+	</div>
+
+<script src="dog-food.js"></script>
+</body>
+</html>	
