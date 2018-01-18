@@ -10,8 +10,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1>Calculate Your Dog's Daily Feeding</h1>
 	<div>
+		<h1>Calculate Your Dog's Daily Feeding</h1>
 		<fieldset>
 			<legend>Select how to handle your dog's weight:</legend>
 			<label class="radio-inline">
@@ -44,15 +44,15 @@
 			<label for="food">Enter your dog's food:</label>
 			<input type="text" id="food" name="food" list="food_list" placeholder="brand of dog food...">
 			<datalist id="food_list">
-				<select name="food">
-					<option value="Blue Buffalo">Blue Buffalo</option>
-					<option value="Hill's">Hill's</option>
-					<option value="Merrick">Merrick</option>
-					<option value="Nature's">Nature's</option>
-					<option value="Nutro">Nutro</option>
-					<option value="Purina">Purina</option>
-					<option value="Royal Canin">Royal Canin</option>
-				</select>
+				<!--[if lte IE 9]><select disabled data-datalist="food_list"><![endif]-->
+					<option value="Blue Buffalo"></option>
+					<option value="Hill's"></option>
+					<option value="Merrick"></option>
+					<option value="Nature's"></option>
+					<option value="Nutro"></option>
+					<option value="Purina"></option>
+					<option value="Royal Canin"></option>
+				<!--[if lte IE 9]></select><![endif]-->
 			</datalist>
 		</p>
 		<p class="buttoncenter">
@@ -63,5 +63,6 @@
 	</div>
 
 <script src="dog-food.js"></script>
+<script src="datalist-polyfill.js"></script>
 </body>
 </html>	

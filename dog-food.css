@@ -1,12 +1,15 @@
-h1 {
-	margin-left: 1%;
+/* Add the correct display in IE10 */
+
+[hidden] {
+	display: none;
 }
 
 div {
-	border: 2px solid #ccc;
-	border-radius: 10%;
-	width: 50%;
 	margin: 0 auto;
+}
+
+h1 {
+	margin-left: 1%;
 }
 
 fieldset {
@@ -15,14 +18,19 @@ fieldset {
 	margin-bottom: 2.5em;
 }
 
+legend {
+	text-align: center;
+	border: none;
+}
+
 p label {
 	display: inline-block;
 	text-align: right;
-	width: 30%;
+	width: 45%;
 }
 
 input[type="text"] {
-	width: 400px;
+	width: 23%;
 }
 
 .buttoncenter {
