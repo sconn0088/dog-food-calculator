@@ -1,45 +1,73 @@
-/* Add the correct display in IE10 */
-
-[hidden] {
-	display: none;
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-div {
-	margin: 0 auto;
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 h1 {
-	margin-left: 1%;
+	text-align: center;
 }
 
-fieldset {
-	text-align: center;
-	margin-top: 2em;
-	margin-bottom: 2.5em;
+h3 {
+	margin-left: 5%;
+}
+
+select {
+	margin-left: 7%;
+	display: inline;
+	margin-bottom: 3em;
 }
 
 legend {
-	text-align: center;
 	border: none;
 }
 
-p label {
-	display: inline-block;
-	text-align: right;
-	width: 45%;
+p {
+	font-size: 1.5em;
 }
 
-input[type="text"] {
-	width: 23%;
+button {
+	margin-bottom: 2em;
 }
 
-.buttoncenter {
+.container {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+}
+
+.small {
+	font-size: 1.2em;
+}
+
+.block {
+	vertical-align: top;
+	margin: 0 auto;
+}
+
+.centered {
 	text-align: center;
-	margin-top: 1.5em;
 }
 
-.pcenter {
+.the-header {
 	text-align: center;
-	margin-top: 1.5em;
+	margin-bottom: 2em;
+}
+
+.shift {
+	margin-left: 20px;
+}
+
+.shift:last-child {
+	margin-bottom: 20px;
+}
+
+#cups {
+	margin-bottom: 2em;
 	font-size: 1.5em;
 }

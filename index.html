@@ -8,61 +8,1424 @@
 	<link rel="stylesheet" href="dog-food.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="hide-foods.js"></script>
 </head>
 <body>
-	<div>
-		<h1>Calculate Your Dog's Daily Feeding</h1>
-		<fieldset>
-			<legend>Select how to handle your dog's weight:</legend>
-			<label class="radio-inline">
-				<input type="radio" name="weight_ratio" id="weight_maintain" value="maintain" checked>Maintain
-			</label>
-			<label class="radio-inline">
-				<input type="radio" name="weight_ratio" id="weight_lose" value="lose">Lose
-			</label>
-			<label class="radio-inline">
-				<input type="radio" name="weight_ratio" id="weight_gain" value="gain">Gain
-			</label>
-		</fieldset>
-		<fieldset>
-			<legend>Select your dog's age:</legend>
-			<label class="radio-inline">
-				<input type="radio" name="age" id="puppy_0-4" value="puppy_0-4">Puppy 0-4 months
-			</label>
-			<label class="radio-inline">
-				<input type="radio" name="age" id="puppy_5-10" value="puppy_5-10">Puppy 5-10 months
-			</label>
-			<label class="radio-inline">
-				<input type="radio" name="age" id="adult" value="adult" checked>Adult 10+ months
-			</label>
-		</fieldset>
-		<p>
-			<label>Enter your dog's weight:</label>
-			<input type="text" id="weight" name="dog_weight" placeholder="weight in pounds...">
-		</p>
-		<p>
-			<label for="food">Enter your dog's food:</label>
-			<input type="text" id="food" name="food" list="food_list" placeholder="brand of dog food...">
-			<datalist id="food_list">
-				<!--[if lte IE 9]><select disabled data-datalist="food_list"><![endif]-->
-					<option value="Blue Buffalo"></option>
-					<option value="Hill's"></option>
-					<option value="Merrick"></option>
-					<option value="Nature's"></option>
-					<option value="Nutro"></option>
-					<option value="Purina"></option>
-					<option value="Royal Canin"></option>
-				<!--[if lte IE 9]></select><![endif]-->
-			</datalist>
-		</p>
-		<p class="buttoncenter">
-			<button type="submit">Calculate</button>
-		</p>
-		<p class="pcenter">Feed your dog this many cups per day:</p>
-		<p class="pcenter" id="cups">0</p>
+	<h1>Calculate Your Dog's Daily Feeding</h1>
+	<hr>
+	<h3>Select your dog's type of food:</h3>
+	<select name="dog_food_manufacturers" id="dog_food_manufacturers">
+		<option>Please select one</option>
+		<option value="blue_buffalo">Blue Buffalo</option>
+		<option value="diamond">Diamond</option>
+		<option value="eukanuba">Eukanuba</option>
+		<option value="hills">Hill's</option>
+		<option value="iams">Iams</option>
+		<option value="merrick">Merrick</option>
+		<option value="natural_balance">Natural Balance</option>
+		<option value="natures_recipe">Nature's Recipe</option>
+		<option value="natures_variety">Nature's Variety</option>
+		<option value="nutro">Nutro</option>
+		<option value="petcurean">Petcurean</option>
+		<option value="purina">Purina</option>
+		<option value="royal_canin">Royal Canin</option>
+		<option value="solid_gold">Solid Gold<br>
+		<option value="wellness">Wellness</option>
+	</select>
+	<div class="blue_buffalo foods">
+		<p class="the-header">Blue Buffalo</p>
+		<div>
+			<fieldset class="block radio-inline">
+				<legend class="small">Basics</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_basics_gfdp" value="361">Grain-Free Duck & Potato<br>
+					<input type="radio" name="food" id="bb_basics_gflp" value="354">Grain-Free Lamb & Potato<br>
+					<input type="radio" name="food" id="bb_basics_gfsp" value="345">Grain-Free Salmon & Potato<br>
+					<input type="radio" name="food" id="bb_basics_gftp" value="323">Grain-Free Turkey & Potato<br>
+					<input type="radio" name="food" id="bb_basics_hwtp" value="337">Healthy Weight Turkey & Potato<br>
+					<input type="radio" name="food" id="bb_basics_lbgflp" value="352">Large Breed Grain-Free Lamb & Potato<br>
+					<input type="radio" name="food" id="bb_basics_lbtp" value="368">Large Breed Turkey & Potato<br>
+					<input type="radio" name="food" id="bb_basics_ptp" value="416">Puppy Turkey and Potato<br>
+					<input type="radio" name="food" id="bb_basics_sp" value="366">Salmon & Potato<br>
+					<input type="radio" name="food" id="bb_basics_stp" value="363">Senior Turkey & Potato<br>
+					<input type="radio" name="food" id="bb_basics_sbgflp" value="369">Small Breed Grain-Free Lamb & Potato<br>
+					<input type="radio" name="food" id="bb_basics_sbtp" value="390">Small Breed Turkey & Potato<br>
+					<input type="radio" name="food" id="bb_basics_tp" value="363">Turkey & Potato<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Blue</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_blue_cr" value="380">Colorado Roast<br>
+					<input type="radio" name="food" id="bb_blue_nf" value="343">Nantucket Feast<br>
+					<input type="radio" name="food" id="bb_blue_sfg" value="340">Santa Fe Grill<br>
+					<input type="radio" name="food" id="bb_blue_tbbq" value="381">Texas BBQ<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Earth's Essentials</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_ee_ht" value="376">Harvest Table<br>
+					<input type="radio" name="food" id="bb_ee_mm" value="377">Mountaintop Medley<br>
+					<input type="radio" name="food" id="bb_ee_pg" value="377">Pacific Grill<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Freedom</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_free_gfb" value="377">Grain-Free Beef<br>
+					<input type="radio" name="food" id="bb_free_gfc" value="376">Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_free_gfl" value="382">Grain-Free Lamb<br>
+					<input type="radio" name="food" id="bb_free_hwgfc" value="337">Healthy Weight Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_free_lbgfb" value="374">Large Breed Grain-Free Beef<br>
+					<input type="radio" name="food" id="bb_free_lbgfc" value="360">Large Breed Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_free_lbgfl" value="371">Large Breed Grain-Free Lamb<br>
+					<input type="radio" name="food" id="bb_free_pgfc" value="421">Puppy Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_free_pgfclb" value="384">Puppy Grain-Free Chicken Large Breed<br>
+					<input type="radio" name="food" id="bb_free_pgfcsb" value="404">Puppy Grain-Free Chicken Small Breed<br>
+					<input type="radio" name="food" id="bb_free_sgfc" value="352">Senior Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_free_sbgfc" value="383">Small Breed Grain-Free Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Life Protection Formula</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_lpf_cbr" value="378">Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_fbr" value="379">Fish and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_gfc" value="376">Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_lpf_hwcbr" value="322">Healthy Weight Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_lbr" value="379">Lamb and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_lbcbr" value="352">Large Breed Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_lbfo" value="363">Large Breed Fish and Oatmeal<br>
+					<input type="radio" name="food" id="bb_lpf_lbhwcbr" value="322">Large Breed Healthy Weight Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_lblbr value="367">Large Breed Lamb and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_lbscbr" value="346">Large Breed Senior Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_pcbr" value="406">Puppy Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_pcbrlb" value="396">Puppy Chicken and Brown Rice Large Breed<br>
+					<input type="radio" name="food" id="bb_lpf_pcosb" value="410">Puppy Chicken and Oatmeal Small Breed<br>
+					<input type="radio" name="food" id="bb_lpf_pgfc" value="421">Puppy Grain-Free Chicken<br>
+					<input type="radio" name="food" id="bb_lpf_plo" value="402">Puppy Lamb and Oatmeal<br>
+					<input type="radio" name="food" id="bb_lpf_scbr" value="350">Senior Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbcbr" value="392">Small Bite Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbrcbr" value="383">Small Breed Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbrfbr" value="387">Small Breed Fish and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbrhwcbr" value="333">Small Breed Healthy Weight Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbrlbr" value="385">Small Breed Lamb and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_sbrscbr" value="363">Small Breed Senior Chicken and Brown Rice<br>
+					<input type="radio" name="food" id="bb_lpf_tbcbr" value="404">Toy Breed Chicken and Brown Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Natural Veterinary Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_nvd_gi" value="364">GI Gastrointestinal Support<br>
+					<input type="radio" name="food" id="bb_nvd_hf" value="385">HF Hydrolized for Food Tolerance<br>
+					<input type="radio" name="food" id="bb_nvd_ks" value="427">KS Kidney Support<br>
+					<input type="radio" name="food" id="bb_nvd_wu" value="310">WU Weight Management + Urinary Care<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Rocky Mountain Recipe</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_rmr_b" value="397">Bison<br>
+					<input type="radio" name="food" id="bb_rmr_hwrd" value="313">Healthy Weight Red Meat<br>
+					<input type="radio" name="food" id="bb_rmr_r" value="419">Rabbit<br>
+					<input type="radio" name="food" id="bb_rmr_rm" value="391">Red Meat<br>
+					<input type="radio" name="food" id="bb_rmr_lbb" value="374">Large Breed Bison<br>
+					<input type="radio" name="food" id="bb_rmr_lbrm" value="372">Large Breed Red Meat<br>
+					<input type="radio" name="food" id="bb_rmr_prd" value="425">Puppy Red Meat<br>
+					<input type="radio" name="food" id="bb_rmr_srm" value="383">Senior Red Meat<br>
+					<input type="radio" name="food" id="bb_rmr_sbrm" value="404">Small Breed Red Meat<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Wilderness</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="bb_w_bb" value="396">Bayou Blend<br>
+					<input type="radio" name="food" id="bb_w_c" value="409">Chicken<br>
+					<input type="radio" name="food" id="bb_w_dd" value="396">Denali Dinner<br>
+					<input type="radio" name="food" id="bb_w_d" value="416">Duck<br>
+					<input type="radio" name="food" id="bb_w_ff" value="397">Flatland Feast<br>
+					<input type="radio" name="food" id="bb_w_hwc" value="353">Healthy Weight Chicken<br>
+					<input type="radio" name="food" id="bb_w_lbc" value="377">Large Breed Chicken<br>
+					<input type="radio" name="food" id="bb_w_lbhwc" value="346">Large Breed Healthy Weight Chicken<br>
+					<input type="radio" name="food" id="bb_w_lbs" value="386">Large Breed Salmon<br>
+					<input type="radio" name="food" id="bb_w_pc" value="424">Puppy Chicken<br>
+					<input type="radio" name="food" id="bb_w_pclb" value="412">Puppy Chicken Large Breed<br>
+					<input type="radio" name="food" id="bb_w_s" value="415">Salmon<br>
+					<input type="radio" name="food" id="bb_w_sc" value="387">Senior Chicken<br>
+					<input type="radio" name="food" id="bb_w_sbc" value="416">Small Bite Chicken<br>
+					<input type="radio" name="food" id="bb_w_sbrc" value="425">Small Breed Chicken<br>
+					<input type="radio" name="food" id="bb_w_sbrhwc" value="375">Small Breed Healthy Weight Chicken<br>
+					<input type="radio" name="food" id="bb_w_srg" value="399">Snake River Grill<br>
+					<input type="radio" name="food" id="bb_w_tbc" value="424">Toy Breed Chicken<br>
+				</div>
+			</fieldset>
+		</div>
 	</div>
+	<div class="diamond foods">
+		<p class="the-header">Diamond</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Diamond</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="diamond_d_he" value="400">Hi-Energy<br>
+					<input type="radio" name="food" id="diamond_d_m" value="330">Maintenance<br>
+					<input type="radio" name="food" id="diamond_d_0" value="317">Original<br>
+					<input type="radio" name="food" id="diamond_d_p" value="448">Performance<br>
+					<input type="radio" name="food" id="diamond_d_pa" value="435">Premium Adult<br>
+					<input type="radio" name="food" id="diamond_d_puppy" value="438">Puppy<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Diamond Naturals</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="diamond_dn_alscr" value="368">All Life Stages Chicken & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_bmr" value="329">Beef Meal & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_eacr" value="470">Extreme Athlete Chicken & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_lmr" value="332">Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_lbcr" value="327">Large Breed Chicken & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_lblmr" value="320">Large Breed Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_lbplrv" value="342">Large Breed Puppy Lamb, Rice & Vegetable<br>
+					<input type="radio" name="food" id="diamond_dn_llmr" value="275">Light Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_sceo" value="318">Senior Chicken, Egg & Oatmeal<br>
+					<input type="radio" name="food" id="diamond_dn_scsp" value="337">Skin & Coat All Life Stages Salmon & Potato<br>
+					<input type="radio" name="food" id="diamond_dn_sbcr" value="345">Small Breed Chicken & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_sblr" value="342">Small Breed Lamb & Rice<br>
+					<input type="radio" name="food" id="diamond_dn_sbpcr" Value="419">Small Breed Puppy Chicken & Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Diamond Naturals Grain-Free</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="diamond_dngf_csp" value="335">Cage-Free Chicken & Sweet Potato<br>
+					<input type="radio" name="food" id="diamond_dngf_bsp" value="335">Pasture-Raised Beef & Sweet Potato<br>
+					<input type="radio" name="food" id="diamond_dn_wsp" value="335">Wild-Caught Whitefish & Sweet Potato<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="eukanuba foods">
+		<p class="the-header">Eukanuba</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Excel</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="euk_e_lbs" value="338">Large Breed Salmon<br>
+					<input type="radio" name="food" id="euk_e_s" value="365">Salmon<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Lifestage Formulas</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="euk_lf_lb" value="316">Large Breed<br>
+					<input type="radio" name="food" id="euk_lf_lbp" value="337">Large Breed Puppy<br>
+					<input type="radio" name="food" id="euk_lf_lbwm" value="259">Large Breed Weight Management<br>
+					<input type="radio" name="food" id="euk_lf_m" value="353">Maintenance<br>
+					<input type="radio" name="food" id="euk_lf_msb" value="345">Maintenance Small Bite<br>
+					<input type="radio" name="food" id="euk_lf_mbp" value="420">Medium Breed Puppy<br>
+					<input type="radio" name="food" id="euk_lf_sm" value="259">Senior Maintenance<br>
+					<input type="radio" name="food" id="euk_lf_sb" value="406">Small Breed<br>
+					<input type="radio" name="food" id="euk_lf_sbp" value="447">Small Breed Puppy<br>
+					<input type="radio" name="food" id="euk_lf_sbs" value="">Small Breed Senior<br>
+					<input type="radio" name="food" id="euk_lf_sbwm" value="294">Small Breed Weight Management<br>
+					<input type="radio" name="food" id="euk_lf_wm" value="238">Weight Management<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Premium Performance</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="euk_pp_aa" value="397">Active Adult 28/18<br>
+					<input type="radio" name="food" id="euk_pp_pp" value="380">Premium Performance Adult 30/20<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="hills foods">
+		<p class="the-header">Hill's</p>
+		<div>
+			<fieldset class="block radio-inline">
+				<legend class="small">Healthy Advantage</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="hills_ha_a" value="377">Adult<br>
+					<input type="radio" name="food" id="hills_ha_ao" value="270">Adult Oral+<br>
+					<input type="radio" name="food" id="hills_ha_asb" value="377">Adult Small Bites</br>
+					<input type="radio" name="food" id="hills_ha_ma" value="359">Mature Adult<br>
+					<input type="radio" name="food" id="hills_ha_p" value="445">Puppy<br>
+					<input type="radio" name="food" id="hills_ha_plb" value="417">Puppy Large Breed<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Ideal Balance</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="hills_ib_gfncp" value="419">Grain-Free Natural Chicken & Potato<br>
+					<input type="radio" name="food" id="hills_ib_lbncbr" value="386">Large Breed Natural Chicken & Brown Rice<br>
+					<input type="radio" name="food" id="hills_ib_ncbr" value="386">Natural Chicken & Brown Rice</br>
+					<input type="radio" name="food" id="hills_ib_ncbrma" value="375">Natural Chicken & Brown Rice Mature<br>
+					<input type="radio" name="food" id="hills_ib_pncbr" value="436">Puppy Natural Chicken & Brown Rice<br>
+					<input type="radio" name="food" id="hills_ib_sbncbr" value="386">Small Breed Natural Chicken & Brown Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Prescription Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="hills_pd_bd" value="361">b/d Brain Aging Care<br>
+					<input type="radio" name="food" id="hills_pd_cd" value="375">c/d Multicare Urinary Care<br>
+					<input type="radio" name="food" id="hills_pd_ddpd" value="371">d/d Skin/Food Sensitivities Potato & Duck<br>
+					<input type="radio" name="food" id="hills_pd_ddps" value="360">d/d Skin/Food Sensitivities Potato & Salmon<br>
+					<input type="radio" name="food" id="hills_pd_ddpv" value="371">d/d Skin/Food Sensitivities Potato & Venison<br>
+					<input type="radio" name="food" id="hills_pd_dd" value="344">Derm Defense<br>
+					<input type="radio" name="food" id="hills_pd_gd" value="361">g/d Aging Care<br>
+					<input type="radio" name="food" id="hills_pd_hd" value="410">h/d Heart Care<br>
+					<input type="radio" name="food" id="hills_pd_id" value="369">i/d Digestive Care<br>
+					<input type="radio" name="food" id="hills_pd_idlf" value="333">i/d Digestive Care Low Fat<br>
+					<input type="radio" name="food" id="hills_pd_idlfn" value="339">i/d Digestive Care Low Fat Natural<br>
+					<input type="radio" name="food" id="hills_pd_idsb" value="379">i/d Digestive Care Small Bites<br>
+					<input type="radio" name="food" id="hills_pd_idse" value="380">i/d Digestive Care Sensitive<br>
+					<input type="radio" name="food" id="hills_pd_idst" value="329">i/d Digestive Care Stress<br>
+					<input type="radio" name="food" id="hills_pd_jd" value="353">j/d Joint Care<br>
+					<input type="radio" name="food" id="hills_pd_jdsb" value="353">j/d Joint Care Small Bites<br>
+					<input type="radio" name="food" id="hills_pd_kd" value="402">k/d Kidney Care<br>
+					<input type="radio" name="food" id="hills_pd_kdl" value="459">k/d Kidney Care with Lamb<br>
+					<input type="radio" name="food" id="hills_pd_kdm" value="496">k/d Kidney + Mobility Joint Care<br>
+					<input type="radio" name="food" id="hills_pd_ld" value="402">l/d Liver Care<br>
+					<input type="radio" name="food" id="hills_pd_mwm" value="260">Metabolic Weight Management<br>
+					<input type="radio" name="food" id="hills_pd_mwmlr" value="256">Metabolic Weight Management Lamb & Rice<br>
+					<input type="radio" name="food" id="hills_pd_mwmn" value="289">Metabolic Weight Management Natural<br>
+					<input type="radio" name="food" id="hills_pd_mwmmjc" value="291">Metabolic Weight Management + Mobility Joint Care<br>
+					<input type="radio" name="food" id="hills_pd_rd" value="245">r/d Weight Reduction<br>
+					<input type="radio" name="food" id="hills_pd_td" value="248">t/d Dental Care<br>
+					<input type="radio" name="food" id="hills_pd_tdsb" value="264">t/d Dental Care Small Bites<br>
+					<input type="radio" name="food" id="hills_pd_ud" value="398">u/d Urinary Care<br>
+					<input type="radio" name="food" id="hills_wd" value="240">w/d Digestive/Weight/Glucose Management<br>
+					<input type="radio" name="food" id="hills_pd_zd" value="354">z/d Skin/Food Sensitivities<br>
+					<input type="radio" name="food" id="hills_pd_zdsb" value="374">z/d Skin/Food Sensitivities Small Bites<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Science Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="hills_sd_splb" value="364">6+ Large Breed<br>
+					<input type="radio" name="food" id="hills_sd_splo" value="364">7+ Active Longevity Original<br>
+					<input type="radio" name="food" id="hills_sd_spalsb" value="364">7+ Active Longevity Small Bites<br>
+					<input type="radio" name="food" id="hills_sd_spstb" value="353">7+ Small & Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_epstbad" value="359">11+ Small & Toy Breed Age Defying<br>
+					<input type="radio" name="food" id="hills_sd_aflmr" value="370">Advanced Fitness Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="hills_sd_afo" value="363">Advanced Fitness Original<br>
+					<input type="radio" name="food" id="hills_sd_afsb" value="363">Advanced Fitness Small Bites<br>
+					<input type="radio" name="food" id="hills_sd_afsblmr" value="370">Advanced Fitness Small Bites Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="hills_sd_gf" value="392">Grain-Free<br>
+					<input type="radio" name="food" id="hills_sd_hmlb" value="367">Healthy Mobility Large Breed<br>
+					<input type="radio" name="food" id="hills_sd_hmsb" value="367">Healthy Mobility Small Bites<br>
+					<input type="radio" name="food" id="hills_sd_lb" value="363">Large Breed<br>
+					<input type="radio" name="food" id="hills_sd_lbl" value="297">Large Breed Light<br>
+					<input type="radio" name="food" id="hills_sd_lblmr" value="366">Large Breed Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="hills_sd_l" value="297">Light<br>
+					<input type="radio" name="food" id="hills_sd_lsb" value="297">Light Small Bites<br>
+					<input type="radio" name="food" id="hills_sd_lstb" value="297">Light Small & Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_oc" value="275">Oral Care<br>
+					<input type="radio" name="food" id="hills_sd_pw" value="291">Perfect Weight<br>
+					<input type="radio" name="food" id="hills_sd_pwstb" value="291">Perfect Weight Small & Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_phd" value="378">Puppy Healthy Development<br>
+					<input type="radio" name="food" id="hills_sd_phdsb" value="378">Puppy Healthy Development Small Bites<br>
+					<input type="radio" name="food" id="hills_sd_blb" value="353">Puppy Large Breed<br>
+					<input type="radio" name="food" id="hills_sd_plblmr" value="355">Puppy Large Breed Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="hills_sd_pstb" value="378">Puppy Small and Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_sss" value="366">Sensitive Stomach & Skin<br>
+					<input type="radio" name="food" id="hills_sd_sssstb" value="366">Sensitive Stomach & Skin Small & Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_stb" value="364">Small & Toy Breed<br>
+					<input type="radio" name="food" id="hills_sd_stblmr" value="391">Small & Toy Breed Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="hills_sd_yvcr" value="363">Youthful Vitality 7+ Chicken & Rice<br>
+					<input type="radio" name="food" id="hills_sd_yvstb" value="363">Youthful Vitality 7+ Small & Toy Breed Chicken & Rice<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="iams foods">
+		<p class="the-header">Iams</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Grain-Free Naturals</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="iams_gfn_frcgp" value="468">Farm-Raised Chicken + Green Pea<br>
+					<input type="radio" name="food" id="iams_gfn_srl" value="365">Salmon + Red Lentils<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Healthy Naturals</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="iams_hn_frcb" value="365">Farm-Raised Chicken + Barley<br>
+					<input type="radio" name="food" id="iams_hn_gflr" value="338">Grass-Fed Lamb + Rice<br>
+					<input type="radio" name="food" id="iams_hn_hwc" value="336">Healthy Weight with Chicken<br>
+					<input type="radio" name="food" id="iams_hn_ocr" value="342">Ocean Fish + Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Proactive Health</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="iams_ph_c" value="354">Chunks<br>
+					<input type="radio" name="food" id="iams_ph_frb" value="341">Farm-Raised Beef<br>
+					<input type="radio" name="food" id="iams_ph_gfl" value="337">Grass-Fed Lamb<br>
+					<input type="radio" name="food" id="iams_ph_lb" value="350">Large Breed<br>
+					<input type="radio" name="food" id="iams_ph_mc" value="380">Minichunks<br>
+					<input type="radio" name="food" id="iams_ph_ow" value="326">Optimal Weight<br>
+					<input type="radio" name="food" id="iams_ph_owlb" value="325">Optimal Weight Large Breed<br>
+					<input type="radio" name="food" id="iams_ph_stb" value="395">Small & Toy Breed<br>
+					<input type="radio" name="food" id="iams_ph_ma" value="333">Mature Adult<br>
+					<input type="radio" name="food" id="iams_ph_malb" value="293">Mature Adult Large Breed<br>
+					<input type="radio" name="food" id="iams_ph_mastb" value="385">Mature Adult Small & Toy Breed<br>
+					<input type="radio" name="food" id="iams_ph_sp" value="369">Senior Plus<br>
+					<input type="radio" name="food" id="iams_ph_splb" value="303">Senior Plus Large Breed<br>
+					<input type="radio" name="food" id="iams_ph_splb" value="399">Smart Puppy Large Breed<br>
+					<input type="radio" name="food" id="iams_ph_spo" value="397">Smart Puppy Original<br>
+					<input type="radio" name="food" id="iams_ph_spstb" value="457">Smart Puppy Small and Toy Breed<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="merrick foods">
+		<p class="the-header">Merrick</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Backcountry</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="merrick_bc_fdrmmrb" value="283">Freeze Dried Raw Meal Mixer Real Beef<br>
+					<input type="radio" name="food" id="merrick_bc_fdrmmrc" value="283">Freeze Dried Raw Meal Mixer Real Chicken<br>
+					<input type="radio" name="food" id="merrick_bc_fdrmmrs" value="221">Freeze Dried Raw Meal Mixer Real Salmon<br>
+					<input type="radio" name="food" id="merrick_bc_ribg" value="374">Raw Infused Big Game<br>
+					<input type="radio" name="food" id="merrick_bc_rigb" value="374">Raw Infused Game Bird<br>
+					<input type="radio" name="food" id="merrick_bc_rigpr" value="374">Raw Infused Great Plains Red<br>
+					<input type="radio" name="food" id="merrick_bc_rihb" value="389">Raw Infused Hero's Banquet<br>
+					<input type="radio" name="food" id="merrick_bc_rilb" value="389">Raw Infused Large Breed<br>
+					<input type="radio" name="food" id="merrick_bc_ripc" value="362">Raw Infused Pacific Catch<br>
+					<input type="radio" name="food" id="merrick_bc_rwp" value="350">Raw Infused Puppy<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Classic</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="merrick_c_p" value="391">Puppy<br>
+					<input type="radio" name="food" id="merrick_c_rbgpag" value="384">Real Beef + Green Peas with Ancient Grains<br>
+					<input type="radio" name="food" id="merrick_c_rcgpag" value="384">Real Chicken + Green Peas with Ancient Grains<br>
+					<input type="radio" name="food" id="merrick_c_rlgpag" value="382">Real Lamb + Green Peas with Ancient Grains<br>
+					<input type="radio" name="food" id="merrick_c_sb" value="398">Small Breed<br>
+				<div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Grain-Free</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="merrick_gf_hw" value="360">Grain-Free Healthy Weight<br>
+					<input type="radio" name="food" id="merrick_gf_prcsp" value="381">Puppy Real Chicken + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_prtbsp" value="377">Puppy Real Texas Beef + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rbsp" value="364">Real Buffalo + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rcsp" value="460">Real Chicken + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rdsp" value="460">Real Duck + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rlp" value="362">Real Lamb + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rrc" value="367">Real Rabbit + Chickpeas<br>
+					<input type="radio" name="food" id="merrick_gf_rssp" value="354">Real Salmon + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rtbsp" value="422">Real Texas Beef + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rtsp" value="400">Real Turkey + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_gf_rvc" value="367">Real Venison + Chickpeas<br>
+					<input type="radio" name="food" id="merrick_gf_srcsp" value="349">Senior Real Chicken + Sweet Potato<br>
+				<div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Lil' Plates</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="merrick_lp_prcsp" value="397">Puppy Real Chicken + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lp_rcsp" value="430">Real Chicken + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lp_rlsp" value="393">Real Lamb + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lp_rssp" value="352">Real Salmon + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lp_rtsp" value="403">Real Texas Beef + Sweet Potato<br>
+				<div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Limited Ingredient Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="merrick_lid_rc" value="367">Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="merrick_lid_rdsp" value="347">Grain-Free Real Duck + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lid_rlsp" value="347">Grain-Free Real Lamb + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lid_rssp" value="347">Grain-Free Real Salmon + Sweet Potato<br>
+					<input type="radio" name="food" id="merrick_lid_rtsp" value="347">Grain-Free Real Turkey + Sweet Potato<br>
+				<div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="natural_balance foods">
+		<p class="the-header">Natural Balance</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Limited Ingredient Diets</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nb_lid_csp" value="365">Chicken & Sweet Potato<br>
+					<input type="radio" name="food" id="nb_lid_cspsbb" value="365">Chicken & Sweet Potato Small Breed Bites<br>
+					<input type="radio" name="food" id="nb_lid_hpb" value="325">High Protein Beef<br>
+					<input type="radio" name="food" id="nb_lid_hpl" value="338">High Protein Lamb<br>
+					<input type="radio" name="food" id="nb_lid_hpt" value="336">High Protein Turkey<br>
+					<input type="radio" name="food" id="nb_lid_lmbr" value="355">Lamb Meal & Brown Rice<br>
+					<input type="radio" name="food" id="nb_lid_lmbrlbb" value="355">Lamb Meal & Brown Rice Large Breed Bites<br>
+					<input type="radio" name="food" id="nb_lid_lmbrsbb" value="336">Lamb Meal & Brown Rice Small Breed Bites<br>
+					<input type="radio" name="food" id="nb_lid_ldm" value="400">Legume & Duck Meal<br>
+					<input type="radio" name="food" id="nb_lid_pd" value="350">Potato & Duck<br>
+					<input type="radio" name="food" id="nb_lid_pdsbb" value="375">Potato & Duck Small Breed Bites<br>
+					<input type="radio" name="food" id="nb_lid_plbr" value="330">Puppy Lamb & Brown Rice<br>
+					<input type="radio" name="food" id="nb_lid_ppd" value="370">Puppy Potato & Duck<br>
+					<input type="radio" name="food" id="nb_lid_spb" value="375">Sweet Potato & Bison<br>
+					<input type="radio" name="food" id="nb_lid_spf" value="350">Sweet Potato & Fish<br>
+					<input type="radio" name="food" id="nb_lid_spfsbb" value="350">Sweet Potato & Fish Small Breed Bites<br>
+					<input type="radio" name="food" id="nb_lid_spv" value="370">Sweet Potato & Venison<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Original Ultra Whole Body Health</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nb_ou_cbrdmlbb" value="315">Chicken, Brown Rice & Duck Meal Large Breed Bites<br>
+					<input type="radio" name="food" id="nb_ou_ccmdm" value="380">Chicken, Chicken Meal & Duck Meal<br>
+					<input type="radio" name="food" id="nb_ou_ccmdmsbb" value="360">Chicken, Chicken Meal & Duck Meal Small Breed Bites<br>
+					<input type="radio" name="food" id="nb_ou_pcbrdm" value="400">Puppy Chicken, Brown Rice & Duck Meal<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Other</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nb_o_fdlc" value="250">Fat Dogs Low Calorie<br>
+					<input type="radio" name="food" id="nb_o_rc" value="330">Reduced Calorie<br>
+					<input type="radio" name="food" id="nb_o_s" value="410">Synergy<br>
+					<input type="radio" name="food" id="nb_o_v" value="365">Vegetarian<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Wild Pursuit</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nb_wp_blm" value="335">Beef & Lamb Meal<br>
+					<input type="radio" name="food" id="nb_wp_ctmq" value="360">Chicken, Turkey Meal & Quail<br>
+					<input type="radio" name="food" id="nb_wp_tsmt" value="360">Trout, Salmon Meal & Tuna<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="natures_recipe foods">
+		<p class="the-header">Nature's Recipe</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Easy to Digest</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nr_ed_cmrb" value="298">Chicken Meal, Rice & Barley<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Grain-Free</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nr_gf_cspp" value="343">Chicken, Sweet Potato & Pumpkin<br>
+					<input type="radio" name="food" id="nr_o_lspp" value="349">Lamb, Sweet Potato & Pumpkin<br>
+					<input type="radio" name="food" id="nr_o_lbcspp" value="371">Large Breed Chicken, Sweet Potato & Pumpkin<br>
+					<input type="radio" name="food" id="nr_o_pcspp" value="347">Puppy Chicken, Sweet Potato & Pumpkin<br>
+					<input type="radio" name="food" id="nr_o_sspp" value="337">Salmon, Sweet Potato & Pumpkin<br>
+					<input type="radio" name="food" id="nr_o_sbcsspp" value="361">Small Breed Chicken, Sweet Potato & Pumpkin<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Healthy Skin</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nr_hs_v" value="295">Vegetarian<br>
+					<input type="radio" name="food" id="nr_hs_vmbr" value="314">Venison Meal & Brown Rice<br>
+					<input type="radio" name="food" id="nr_hs_wmr" value="321">Whitefish Meal & Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Original</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nr_o_cmr" value="322">Chicken Meal & Rice<br>
+					<input type="radio" name="food" id="nr_o_lmr" value="312">Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="nr_o_plmr" value="348">Puppy Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="nr_o_slmr" value="304">Senior Lamb Meal & Rice<br>
+					<input type="radio" name="food" id="nr_o_sbcmr" value="339">Small Bites Chicken Meal & Rice<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="natures_variety foods">
+		<p class="the-header">Nature's Variety</p>
+		<div>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Limited Ingredient Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_lid_d" value="446">Grain-Free Real Duck<br>
+					<input type="radio" name="food" id="instinct_lid_l" value="447">Grain-Free Real Lamb<br>
+					<input type="radio" name="food" id="instinct_lid_s" value="515">Grain-Free Real Salmon<br>
+					<input type="radio" name="food" id="instinct_lid_t" value="466">Grain-Free Real Turkey<br>
+					<input type="radio" name="food" id="instinct_lid_sbt" value="434">Small Breed Grain-Free Real Turkey<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Original</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_o_b" value="518">Grain-Free Real Beef<br>
+					<input type="radio" name="food" id="instinct_o_c" value="499">Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="instinct_o_d" value="517">Grain-Free Real Duck<br>
+					<input type="radio" name="food" id="instinct_o_r" value="524">Grain-Free Real Rabbit<br>
+					<input type="radio" name="food" id="instinct_o_s" value="523">Grain-Free Real Salmon<br>
+					<input type="radio" name="food" id="instinct_o_sdc" value="463">Small Dog Grain-Free Real Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Raw Boost</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_rb_b" value="508">Grain-Free Real Beef<br>
+					<input type="radio" name="food" id="instinct_rb_c" value="491">Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="instinct_rb_chw" value="348">Grain-Free Real Chicken Healthy Weight<br>
+					<input type="radio" name="food" id="instinct_rb_d" value="506">Grain-Free Real Duck<br>
+					<input type="radio" name="food" id="instinct_rb_l" value="508">Grain-Free Real Lamb<br>
+					<input type="radio" name="food" id="instinct_rb_v" value="527">Grain-Free Real Venison<br>
+					<input type="radio" name="food" id="instinct_rb_pc" value="517">Puppy Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="instinct_rb_plbc" value="495">Puppy Large Breed Grain-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_rb_senc" value="496">Senior Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="instinct_rb_sbc" value="456">Small Breed Grain-Free Real Chicken<br>
+					<input type="radio" name="food" id="instinct_rb_sbd" value="447">Small Breed Grain-Free Real Duck<br>
+					<input type="radio" name="food" id="instinct_rb_tbc" value="456">Toy Breed Grain-Free Real Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Raw Frozen Bites</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_rfb_b" value="182">All Natural Beef<br>
+					<input type="radio" name="food" id="instinct_rfb_c" value="190">Cage-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_rfb_d" value="198">Cage-Free Duck<br>
+					<input type="radio" name="food" id="instinct_rfb_t" value="178">Cage-Free Turkey<br>
+					<input type="radio" name="food" id="instinct_rfb_r" value="197">Farm-Raised Rabbit<br>
+					<input type="radio" name="food" id="instinct_rfb_l" value="178">Grass-Fed Lamb<br>
+					<input type="radio" name="food" id="instinct_rfb_sbc" value="190">Small Breed Cage-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_rfb_sbd" value="191">Small Breed Cage-Free Duck<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Raw Frozen Medallions</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_rfm_b" value="47">All Natural Beef<br>
+					<input type="radio" name="food" id="instinct_rfm_c" value="49">Cage-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_rfm_d" value="51">Cage-Free Duck<br>
+					<input type="radio" name="food" id="instinct_rfm_r" value="51">Farm-Raised Rabbit<br>
+					<input type="radio" name="food" id="instinct_rfm_l" value="46">Grass-Fed Lamb<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Raw Frozen Patties</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_rfp_b" value="376">All Natural Beef<br>
+					<input type="radio" name="food" id="instinct_rfp_c" value="392">Cage-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_rfp_d" value="410">Cage-Free Duck<br>
+					<input type="radio" name="food" id="instinct_rfp_t" value="368">Cage-Free Turkey<br>
+					<input type="radio" name="food" id="instinct_rfp_r" value="410">Farm-Raised Rabbit<br>
+					<input type="radio" name="food" id="instinct_rfp_l" value="368">Grass-Fed Lamb<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Raw Market Blends</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_rm_b" value="197">Beef<br>
+					<input type="radio" name="food" id="instinct_rm_c" value="197">Chicken<br>
+					<input type="radio" name="food" id="instinct_rm_nb" value="46">Nuggets Beef<br>
+					<input type="radio" name="food" id="instinct_rm_nc" value="46">Nuggets Chicken<br>
+					<input type="radio" name="food" id="instinct_rm_nl" value="47">Nuggets Lamb<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Instinct Ultimate Protein</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="instinct_up_c" value="491">Cage-Free Chicken<br>
+					<input type="radio" name="food" id="instinct_up_d" value="496">Cage-Free Duck<br>
+					<input type="radio" name="food" id="instinct_up_sd" value="491">Small Dog Cage-Free Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Prairie</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nv_prairie_bb" value="432">Real Beef & Barley<br>
+					<input type="radio" name="food" id="nv_prairie_cbr" value="420">Real Chicken & Brown Rice<br>
+					<input type="radio" name="food" id="nv_prairie_lo" value="411">Real Lamb & Oatmeal<br>
+					<input type="radio" name="food" id="nv_prairie_sbr" value="418">Real Salmon & Brown Rice<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="nutro foods">
+		<p class="the-header">Nutro</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Grain-Free</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_gf_clsp" value="417">Farm-Raised Chicken, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_lbclsp" value="402">Large Breed Farm-Raised Chicken, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_lbllsp" value="461">Large Breed Pasture-Fed Lamb, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_llsp" value="427">Pasture-Fed Lamb, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gr_pclsp" value="444">Puppy Farm-Raised Chicken, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_sclsp" value="349">Senior Farm-Raised Chicken, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_sbllsp" value="461">Small Bites Pasture-Fed Lamb, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_gf_sbclsp" value="464">Small Breed Farm-Raised Chicken, Lentils & Sweet Potato<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Limited Ingredient Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_lid_dl" value="442">Duck & Lentils<br>
+					<input type="radio" name="food" id="nutro_lid_lsp" value="426">Lamb & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_lid_lblsp" value="434">Large Breed Lamb & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_lid_sl" value="426">Salmon & Lentils<br>
+					<input type="radio" name="food" id="nutro_lid_sblsp" value="452">Small Bites Lamb & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_lid_vmsp" value="373">Venison Meal & Sweet Potato<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Max</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_max_frbbr" value="373">Farm-Raised Beef and Brown Rice<br>
+					<input type="radio" name="food" id="nutro_max_frc" value="383">Farm-Raised Chicken<br>
+					<input type="radio" name="food" id="nutro_max_frcmc" value="408">Farm-Raised Chicken Mini Chunk<br>
+					<input type="radio" name="food" id="nutro_max_gffrc" value="307">Grain-Free Farm-Raised Chicken<br>
+					<input type="radio" name="food" id="nutro_max_gffrcmc" value="358">Grain-Free Farm-Raised Chicken Mini Chunk<br>
+					<input type="radio" name="food" id="nutro_max_gfpfl" value="386">Grain-Free Pasture-Fed Lamb<br>
+					<input type="radio" name="food" id="nutro_max_gfs" value="385">Grain-Free Salmon<br>
+					<input type="radio" name="food" id="nutro_max_lbfrc" value="324">Large Breed Farm-Raised Chicken<br>
+					<input type="radio" name="food" id="nutro_max_pfl" value="358">Pasture-Fed Lamb<br>
+					<input type="radio" name="food" id="nutro_max_pfrc" value="383">Puppy Farm-Raised Chicken<br>
+					<input type="radio" name="food" id="nutro_max_plbfrc" value="344">Puppy Large Breed Farm-Raised Chicken<br>
+					<input type="radio" name="food" id="nutro_max_sfrc" value="354">Senior Farm-Raised Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Ultra</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_ultra_a" value="341">Adult<br>
+					<input type="radio" name="food" id="nutro_ultra_lb" value="346">Large Breed<br>
+					<input type="radio" name="food" id="nutro_ultra_p" value="360">Puppy<br>
+					<input type="radio" name="food" id="nutro_ultra_plb" value="353">Puppy Large Breed<br>
+					<input type="radio" name="food" id="nutro_ultra_psb" value="418">Puppy Small Breed<br>
+					<input type="radio" name="food" id="nutro_ultra_s" value="314">Senior<br>
+					<input type="radio" name="food" id="nutro_ultra_sb" value="351">Small Breed<br>
+					<input type="radio" name="food" id="nutro_ultra_sbs" value="308">Small Breed Senior<br>
+					<input type="radio" name="food" id="nutro_ultra_sbwm" value="288">Small Breed Weight Management<br>
+					<input type="radio" name="food" id="nutro_ultra_tb" value="371">Toy Breed<br>
+					<input type="radio" name="food" id="nutro_ultra_wm" value="335">Weight Management<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Wholesome Essentials</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_we_cbrsp" value="343">Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_hwclsp" value="228">Healthy Weight Farm-Raised Chicken, Lentils & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_hwlbcrsp" value="227">Healthy Weight Large Breed Farm-Raised Chicken, Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_hwlr" value="252">Healthy Weight Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_hwsbcbrsp" value="222">Healthy Weight Small Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_lbcbrsp" value="330">Large Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_lblr" value="318">Large Breed Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_lbcbrsp" value="315">Large Breed Senior Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_lr" value="311">Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_pfrcbrsp" value="387">Puppy Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_ppflr" value="377">Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_plbcbrsp" value="379">Puppy Large Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_plblr" value="345">Puppy Large Breed Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_psbcbrsp" value="409">Puppy Small Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_sbrsp" value="338">Salmon, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_scbrsp" value="313">Senior Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_slr" value="312">Senior Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_sbcbrsp" value="343">Small Bites Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_sblr" value="344">Small Bites Pasture-Fed Lamb & Rice<br>
+					<input type="radio" name="food" id="nutro_we_sbsbrsp" value="338">Small Bites Salmon, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_sbcbrsp" value="345">Small Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_sbscbrsp" value="310">Small Breed Senior Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_tbcbrsp" value="415">Toy Breed Farm-Raised Chicken, Brown Rice & Sweet Potato<br>
+					<input type="radio" name="food" id="nutro_we_vmbro" value="323">Venison Meal, Brown Rice & Oatmeal<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Wild Frontiers</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="nutro_wf_cwr" value="449">Cold Water Recipe Grain-Free Salmon<br>
+					<input type="radio" name="food" id="nutro_wf_ovr" value="438">Open Valley Recipe Grain-Free Chicken<br>
+					<input type="radio" name="food" id="nutro_wf_rmr" value="472">Rolling Meadows Recipe Grain-Free Lamb<br>
+					<input type="radio" name="food" id="nutro_wf_wtr" value="423">Woodland Trail Recipe Grain-Free Venison<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="petcurean foods">
+		<p class="the-header">Petcurean</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Gather</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="petcurean_gather_ev" value="385">Endless Valley Vegan<br>
+					<input type="radio" name="food" id="petcurean_gather_fa" value="399">Free Acres Organic Free-Run Chicken<br>
+					<input type="radio" name="food" id="petcurean_gather_wo" value="393">Wild Ocean Line-Caught Cod<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Go!</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="petcurean_godd_c" value="467">Daily Defence Chicken<br>
+					<input type="radio" name="food" id="petcurean_godd_lm" value="451">Daily Defence Lamb Meal<br>
+					<input type="radio" name="food" id="petcurean_goff_gfa" value="435">Fit + Free Grain-Free Adult<br>
+					<input type="radio" name="food" id="petcurean_goff_gfp" value="451">Fit + Free Grain-Free Puppy<br>
+					<input type="radio" name="food" id="petcurean_goff_gfs" value="394">Fit + Free Grain-Free Senior<br>
+					<input type="radio" name="food" id="petcurean_goss_d" value="438">Sensitivity + Shine Duck<br>
+					<input type="radio" name="food" id="petcurean_goss_lid" value="439">Sensitivity + Shine Limited Ingredient Duck<br>
+					<input type="radio" name="food" id="petcurean_goss_lil" value="435">Sensitivity + Shine Limited Ingredient Lamb<br>
+					<input type="radio" name="food" id="petcurean_goss_lip" value="442">Sensitivity + Shine Limited Ingredient Pollock<br>
+					<input type="radio" name="food" id="petcurean_goss_lis" value="449">Sensitivity + Shine Limited Ingredient Salmon<br>
+					<input type="radio" name="food" id="petcurean_goss_lit" value="451">Sensitivity + Shine Limited Ingredient Turkey<br>
+					<input type="radio" name="food" id="petcurean_goss_liv" value="442">Sensitivity + Shine Limited Ingredient Venison<br>
+					<input type="radio" name="food" id="petcurean_goss_s" value="427">Sensitivity + Shine Salmon<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Now Fresh</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="petcurean_nf_gfa" value="378">Grain-Free Adult<br>
+					<input type="radio" name="food" id="petcurean_nf_gff" value="392">Grain-Free Fish<br>
+					<input type="radio" name="food" id="petcurean_nf_gflba" value="363">Grain-Free Large Breed Adult<br>
+					<input type="radio" name="food" id="petcurean_nf_gflbp" value="379">Grain-Free Large Breed Puppy<br>
+					<input type="radio" name="food" id="petcurean_nf_gflbs" value="328">Grain-Free Large Breed Senior<br>
+					<input type="radio" name="food" id="petcurean_nf_gfp" value="412">Grain-Free Puppy<br>
+					<input type="radio" name="food" id="petcurean_nf_gfrm" value="407">Grain-Free Red Meat<br>
+					<input type="radio" name="food" id="petcurean_nf_gfs" value="341">Grain-Free Senior<br>
+					<input type="radio" name="food" id="petcurean_nf_gfsb" value="430">Grain-Free Small Breed<br>
+					<input type="radio" name="food" id="petcurean_nf_gfsbf" value="422">Grain-Free Small Breed Fish<br>
+					<input type="radio" name="food" id="petcurean_nf_gfsbp" value="416">Grain-Free Small Breed Puppy<br>
+					<input type="radio" name="food" id="petcurean_nf_gfsbrm" value="420">Grain-Free Small Breed Red Meat<br>
+					<input type="radio" name="food" id="petcurean_nf_gfsbs" value="379">Grain-Free Small Breed Senior<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Summit</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="petcurean_s_tma" value="380">Three Meat Adult<br>
+					<input type="radio" name="food" id="petcurean_s_tmlb" value="441">Three Meat Large Breed<br>
+					<input type="radio" name="food" id="petcurean_s_tmp" value="446">Three Meat Puppy<br>
+					<input type="radio" name="food" id="petcurean_s_tmrc" value="318">Three Meat Reduced Calorie<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="purina foods">
+		<p class="the-header">Purina</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Alpo</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_alpo_cgi" value="380">Come and Get It Cookout Classics<br>
+					<input type="radio" name="good" id="purina_alpo_pc" value="383">Prime Cuts Savory Beef<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Bella</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_bella_cb" value="358">Chicken & Beef<br>
+					<input type="radio" name="food" id="purina_bella_ct" value="358">Chicken & Turkey<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Beneful</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_bene_hp" value="353">Healthy Puppy<br>
+					<input type="radio" name="food" id="purina_bene_hwc" value="310">Healthy Weight Chicken<br>
+					<input type="radio" name="food" id="purina_bene_ibsdb" value="366">IncrediBites Small Dog Beef<br>
+					<input type="radio" name="food" id="purina_bene_ibsdc" value="366">IncrediBites Small Dog Chicken<br>
+					<input type="radio" name="food" id="purina_bene_ob" value="347">Originals Beef<br>
+					<input type="radio" name="food" id="purina_bene_oc" value="347">Originals Chicken<br>
+					<input type="radio" name="food" id="purina_bene_os" value="352">Originals Salmon<br>
+					<input type="radio" name="food" id="purina_bene_pl" value="348">Playful Life Beef & Egg<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Beyond</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_beyond_be" value="408">Grain-Free Beef & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_te" value="468">Grain-Free Tuna & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_wmce" value="438">Grain-Free White Meat Chicken & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_lwb" value="458">Simply 9 Ranch-Raised Lamb & Whole Barley<br>
+					<input type="radio" name="food" id="purina_beyond_cwb" value="454">Simply 9 White Meat Chicken & Whole Barley<br>
+					<input type="radio" name="food" id="purina_beyond_sbbe" value="437">Small Batch Grain-Free North American Beef & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_sbce" value="438">Small Batch Grain-Free White Meat Chicken & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_sdcbe" value="520">Small Dog White Meat Chicken, Barley & Egg<br>
+					<input type="radio" name="food" id="purina_beyond_sbsep" value="415">Superfood Blend Salmon, Egg & Pumpkin<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Dog Chow</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_dc_cab" value="366">Complete Adult Beef<br>
+					<input type="radio" name="food" id="purina_dc_cac" value="413">Complete Adult Chicken<br>
+					<input type="radio" name="food" id="purina_dc_cpc" value="443">Complete Puppy Chicken<br>
+					<input type="radio" name="food" id="purina_dc_hw" value="305">Healthy Weight<br>
+					<input type="radio" name="food" id="purina_dc_ld" value="383">Large Dog<br>
+					<input type="radio" name="food" id="purina_dc_lb" value="402">Little Bites<br>
+					<input type="radio" name="food" id="purina_dc_n" value="413">Natural<br>
+					<input type="radio" name="food" id="purina_dc_np" value="403">Natural Puppy<br>
+					<input type="radio" name="food" id="purina_dc_plb" value="404">Puppy Large Breed<br>
+					<input type="radio" name="food" id="purina_dc_ptc" value="347">Puppy Tender & Crunchy<br>
+					<input type="radio" name="food" id="purina_dc_tc" value="370">Tender & Crunchy<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">One SmartBlend</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_os_cr" value="383">Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_os_hp" value="397">Healthy Puppy<br>
+					<input type="radio" name="food" id="purina_os_hw" value="320">Healthy Weight<br>
+					<input type="radio" name="food" id="purina_os_lr" value="380">Lamb & Rice<br>
+					<input type="radio" name="food" id="purina_os_lb" value="355">Large Breed<br>
+					<input type="radio" name="food" id="purina_os_lbp" value="361">Large Breed Puppy<br>
+					<input type="radio" name="food" id="purina_os_ss" value="453">Sensitive Systems<br>
+					<input type="radio" name="food" id="purina_os_sbbr" value="388">Small Bites Beef & Rice<br>
+					<input type="radio" name="food" id="purina_os_tibsp" value="440">True Instinct Grain-Free Beef & Sweet Potato<br>
+					<input type="radio" name="food" id="purina_os_ticsp" value="442">True Instinct Grain-Free Chicken & Sweet Potato<br>
+					<input type="radio" name="food" id="purina_os_tist" value="343">True Instinct Real Salmon & Tuna<br>
+					<input type="radio" name="food" id="purina_os_titv" value="360">True Instinct Real Turkey & Venison<br>
+					<input type="radio" name="food" id="purina_os_vm" value="363">Vibrant Maturity 7+<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Pro Plan Bright Mind</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_bm_spcr" value="420">Adult 7+ Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_bm_sptr" value="423">Adult 7+ Turkey & Rice<br>
+					<input type="radio" name="food" id="purina_bm_splb" value="451">Adult 7+ Large Breed<br>
+					<input type="radio" name="food" id="purina_bm_spsb" value="487">Adult 7+ Small Breed<br>
+					<input type="radio" name="food" id="purina_bm_cr" value="434">Adult Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_bm_sb" value="466">Adult Small Breed<br>
+					<input type="radio" name="food" id="purina_bm_tr" value="427">Adult Turkey & Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Pro Plan Focus</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_f_als" value="444">All Life Stages Small Bites Lamb & Rice<br>
+					<input type="radio" name="food" id="purina_f_gb" value="383">Giant Breed<br>
+					<input type="radio" name="food" id="purina_f_gfsbce" value="476">Grain-Free Small Breed Chicken & Egg<br>
+					<input type="radio" name="food" id="purina_f_lb" value="396">Large Breed<br>
+					<input type="radio" name="food" id="purina_f_lbwm" value="374">Large Breed Weight Management<br>
+					<input type="radio" name="food" id="purina_f_pcr" value="468">Puppy Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_f_plr" value="457">Puppy Lamb & Rice<br>
+					<input type="radio" name="food" id="purina_f_plb" value="417">Puppy Large Breed<br>
+					<input type="radio" name="food" id="purina_f_psb" value="417">Puppy Small Breed<br>
+					<input type="radio" name="food" id="purina_f_ptb" value="521">Puppy Toy Breed<br>
+					<input type="radio" name="food" id="purina_f_ssslo" value="498">Sensitive Skin & Stomach Lamb & Oatmeal<br>
+					<input type="radio" name="food" id="purina_f_ssssr" value="429">Sensitive Skin & Stomach Salmon & Rice<br>
+					<input type="radio" name="food" id="purina_f_sb" value="465">Small Breed<br>
+					<input type="radio" name="food" id="purina_f_tb" value="487">Toy Breed<br>
+					<input type="radio" name="food" id="purina_f_wm" value="362">Weight Management<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Pro Plan Savor</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_sa_spcr" value="360">Adult 7+ Shredded Blend Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_sa_br" value="371">Beef & Rice<br>
+					<input type="radio" name="food" id="purina_sa_bs" value="417">Beef & Salmon<br>
+					<input type="radio" name="food" id="purina_sa_cr" value="382">Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_sa_lr" value="389">Lamb & Rice<br>
+					<input type="radio" name="food" id="purina_sa_lb" value="337">Large Breed<br>
+					<input type="radio" name="food" id="purina_sa_pcr" value="384">Puppy Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_sa_sr" value="392">Salmon & Rice<br>
+					<input type="radio" name="food" id="purina_sa_sbcr" value="370">Small Breed Chicken & Rice<br>
+					<input type="radio" name="food" id="purina_sa_sblr" value="370">Small Breed Lamb & Rice<br>
+					<input type="radio" name="food" id="purina_sa_tc" value="437">Turkey & Chicken<br>
+					<input type="radio" name="food" id="purina_sa_wm" value="334">Weight Management<br>
+					<input type="radio" name="food" id="purina_sa_wmlb" value="371">Weight Management Large Breed<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Pro Plan Sport</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_sp_a26" value="439">Active 26/16 All Life Stages<br>
+					<input type="radio" name="food" id="purina_sp_a27" value="436">Active 27/17 Turkey & Barley<br>
+					<input type="radio" name="food" id="purina_sp_p30" value="475">Performance 30/20<br>
+					<input type="radio" name="food" id="purina_sp_p30ce" value="541">Performance 30/20 Chicken & Egg Grain-Free<br>
+					<input type="radio" name="food" id="purina_sp_p30sr" value="496">Performance 30/20 Salmon & Rice<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Pro Plan Veterinary Diet</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="purina_vd_dh" value="290">DH Dental Health<br>
+					<input type="radio" name="food" id="purina_vd_dhsb" value="321">DH Dental Health Small Bites<br>
+					<input type="radio" name="food" id="purina_vd_drm" value="394">DRM Dermatologic Management<br>
+					<input type="radio" name="food" id="purina_vd_en" value="399">EN Gastroenteric<br>
+					<input type="radio" name="food" id="purina_vd_enfb" value="311">EN Gastroenteric Fiber Balance<br>
+					<input type="radio" name="food" id="purina_vd_enlf" value="327">EN Gastroenteric Low Fat<br>
+					<input type="radio" name="food" id="purina_vd_enn" value="359">EN Gastroenteric Naturals<br>
+					<input type="radio" name="food" id="purina_vd_hac" value="322">HA Hydrolized Chicken<br>
+					<input type="radio" name="food" id="purina_vd_hav" value="311">HA Hydrolized Vegetarian<br>
+					<input type="radio" name="food" id="purina_vd_jm" value="408">JM Joint Mobility<br>
+					<input type="radio" name="food" id="purina_vd_nc" value="389">NC NeuroCare<br>
+					<input type="radio" name="food" id="purina_vd_nf" value="459">NF Kidney Function<br>
+					<input type="radio" name="food" id="purina_vd_om" value="266">OM Overweight Management<br>
+					<input type="radio" name="food" id="purina_vd_omsb" value="235">OM Select Blend Overweight Management<br>
+					<input type="radio" name="food" id="purina_vd_ur" value="408">UR Urinary Ox/St<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="royal_canin foods">
+		<p class="the-header">Royal Canin</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Adult</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_a_a" value="361">Adult<br>
+					<input type="radio" name="food" id="rc_a_ld" value="369">Adult Large Dog<br>
+					<input type="radio" name="food" id="rc_a_asd" value="353">Adult Small Dog<br>
+					<input type="radio" name="food" id="rc_a_ga" value="424">Giant Adult<br>
+					<input type="radio" name="food" id="rc_a_mc" value="314">Mature Consult<br>
+					<input type="radio" name="food" id="rc_a_mcsd" value="328">Mature Consult Small Dog<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Calm</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_c_c" value="354">Calm<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Dental</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_d_d" value="315">Dental<br>
+					<input type="radio" name="food" id="rc_d_dsd" value="330">Dental Small Dog<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Early Cardiac</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ec_ec" value="309">Early Cardiac<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Gastrointestinal</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_gi_fr" value="287">Gastrointestinal Fiber Responsive<br>
+					<input type="radio" name="food" id="rc_gi_he" value="394">Gastrointestinal High Energy<br>
+					<input type="radio" name="food" id="rc_gi_lf" value="240">Gastrointestinal Low Fat<br>
+					<input type="radio" name="food" id="rc_gi_mc" value="314">Gastrointestinal Moderate Calorie<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Glycobalance</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_g_g" value="276">Glycobalance<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Hepatic</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_h_h" value="339">Hepatic<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Hydrolized Protein</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_hp_hp" value="304">HP<br>
+					<input type="radio" name="food" id="rc_hp_mc" value="286">Moderate Calorie<br>
+					<input type="radio" name="food" id="rc_hp_ps" value="302">PS<br>
+					<input type="radio" name="food" id="rc_hp_sb" value="374">Small Breed<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Indoor Life</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_il_sd" value="353">Small Dog<br>
+					<input type="radio" name="food" id="rc_il_sds" value="305">Small Dog Senior<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Maxi</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_maxi_a" value="357">Adult<br>
+					<input type="radio" name="food" id="rc_maxi_afp" value="331">Adult 5+<br>
+					<input type="radio" name="food" id="rc_maxi_aep" value="301">Aging 8+<br>
+					<input type="radio" name="food" id="rc_maxi_jcc" value="328">Joint & Coat Care<br>
+					<input type="radio" name="food" id="rc_maxi_sd" value="343">Sensitive Digestion<br>
+					<input type="radio" name="food" id="rc_maxi_skc" value="383">Sensitive Skin Care<br>
+					<input type="radio" name="food" id="rc_maxi_wc" value="301">Weight Care<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Medium</legend>
+				<div class="shift">
+					<input  type="radio" name="food" id="rc_med_a" value="334">Adult<br>
+					<input  type="radio" name="food" id="rc_med_asp" value="311">Adult 7+<br>
+					<input  type="radio" name="food" id="rc_med_atp" value="287">Aging 10+<br>
+					<input  type="radio" name="food" id="rc_med_sd" value="318">Sensitive Digestion<br>
+					<input  type="radio" name="food" id="rc_med_ss" value="372">Sensitive Skin<br>
+					<input  type="radio" name="food" id="rc_med_wc" value="257">Weight Care<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Mini</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_mini_a" value="379">Adult<br>
+					<input type="radio" name="food" id="rc_mini_atp" value="322">Aging 12+<br>
+					<input type="radio" name="food" id="rc_mini_mep" value="360">Mature 8+<br>
+					<input type="radio" name="food" id="rc_mini_ss" value="414">Sensitive Skin<br>
+					<input type="radio" name="food" id="rc_mini_s" value="537">Special<br>
+					<input type="radio" name="food" id="rc_mini_wc" value="311">Weight Care<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Mobility Support</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ms_js" value="324">JS<br>
+					<input type="radio" name="food" id="rc_ms_jslb" value="286">JS Large Breed<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Multifunction</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_multi_rshp" value="385">Renal Support + Hydrolized Protein<br>
+					<input type="radio" name="food" id="rc_multi_uhp" value="308">Urinary + Hydrolized Protein<br>
+					<input type="radio" name="food" id="rc_multi_us" value="240">Urinary + Satiety<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Puppy</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_puppy_g" value="340">Giant<br>
+					<input type="radio" name="food" id="rc_puppy_gj" value="303">Giant Junior<br>
+					<input type="radio" name="food" id="rc_puppy_ilsd" value="326">Indoor Life Small Dog<br>
+					<input type="radio" name="food" id="rc_puppy_maxi" value="346">Maxi<br>
+					<input type="radio" name="food" id="rc_puppy_med" value="386">Medium<br>
+					<input type="radio" name="food" id="rc_puppy_mini" value="352">Mini<br>
+					<input type="radio" name="food" id="rc_puppy_ulld" value="362">Urban Life Large Dog<br>
+					<input type="radio" name="food" id="rc_puppy_ulsd" value="377">Urban Life Small Dog<br>
+					<input type="radio" name="food" id="rc_puppy_xs" value="430">X-Small<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Renal Support</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_rs_a" value="352">A<br>
+					<input type="radio" name="food" id="rc_rs_f" value="356">F<br>
+					<input type="radio" name="food" id="rc_rs_s" value="365">S<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Satiety Support</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ss_ss" value="245">Satiety Support<br>
+					<input type="radio" name="food" id="rc_ss_sssd" value="225">Satiety Support Small Dog<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Selected Protein</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_sp_ko" value="335">KO<br>
+					<input type="radio" name="food" id="rc_sp_pd" value="304">PD<br>
+					<input type="radio" name="food" id="rc_sp_pr" value="287">PR<br>
+					<input type="radio" name="food" id="rc_sp_pv" value="286">PV<br>
+					<input type="radio" name="food" id="rc_sp_pw" value="315">PW<br>
+					<input type="radio" name="food" id="rc_sp_pwlb" value="336">PW Large Breed<br>
+					<input type="radio" name="food" id="rc_sp_pwmc" value="260">PW Moderate Calorie<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Skin Support</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ss_ss" value="323">SS<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Sporting</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_sport_a" value="315">Agility 4100<br>
+					<input type="radio" name="food" id="rc_sport_lt" value="413">Life Trail 4300<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Ultamino</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ult_u" value="313">Ultamino<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Urban Life</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_ul_ld" value="367">Large Dog<br>
+					<input type="radio" name="food" id="rc_ul_lds" value="374">Large Dog Senior<br>
+					<input type="radio" name="food" id="rc_ul_sd" value="369">Small Dog<br>
+					<input type="radio" name="food" id="rc_ul_sds" value="391">Small Dog Senior<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Urinary</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_u_so" value="288">S/O<br>
+					<input type="radio" name="food" id="rc_u_somc" value="261">S/O Moderate Calorie<br>
+					<input type="radio" name="food" id="rc_u_sosd" value="355">S/O Small Dog<br>
+					<input type="radio" name="food" id="rc_u_uc" value="338">UC Low Purine<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Vegetarian</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_veggie_v" value="291">Vegetarian<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Weight Control</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_wc_wc" value="274">Weight Control<br>
+					<input type="radio" name="food" id="rc_wc_wcld" value="267">Weight Control Large Dog<br>
+					<input type="radio" name="food" id="rc_wc_wcsd" value="280">Weight Control Small Dog<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">X-Small</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="rc_xs_a" value="384">Adult<br>
+					<input type="radio" name="food" id="rc_xs_atp" value="339">Aging 12+<br>
+					<input type="radio" name="food" id="rc_xs_m" value="357">Mature 8+<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="solid_gold foods">
+		<p class="the-header">Solid Gold</p>
+		<div class="container">
+			<fieldset class="block radio-inline">
+				<legend class="small">Chicken/Fowl</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="sg_cf_faf" value="370">Fit and Fabulous Weight Control with Chicken<br>
+					<input type="radio" name="food" id="sg_cf_hpd" value="345">High Protein with Duck<br>
+					<input type="radio" name="food" id="sg_cf_lbt" value="400">Lil' Boss with Turkey<br>
+					<input type="radio" name="food" id="sg_cf_lfb" value="450">Love at First Bark with Chicken<br>
+					<input type="radio" name="food" id="sg_cf_mmc" value="420">Mighty Mini with Chicken<br>
+					<input type="radio" name="food" id="sg_cf_scc" value="385">Star Chaser with Chicken<br>
+					<input type="radio" name="food" id="sg_cf_sdc" value="385">Sun Dancer with Chicken<br>
+					<input type="radio" name="food" id="sg_cf_wh" value="365">Wild Heart with Quail<br>
+					<input type="radio" name="food" id="sg_cf_yh" value="325">Young at Heart with Chicken<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Red Meat/Lamb</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="sg_rm_bam" value="425">Barking at the Moon with Beef<br>
+					<input type="radio" name="food" id="sg_rm_bw" value="330">Buck Wild with Venison<br>
+					<input type="radio" name="food" id="sg_rm_hpb" value="345">High Protein with Buffalo<br>
+					<input type="radio" name="food" id="sg_rm_hnf" value="365">Hund-N-Flocken with Lamb<br>
+					<input type="radio" name="food" id="sg_rm_hf" value="375">Hundchen Flocken with Lamb<br>
+					<input type="radio" name="food" id="sg_rm_mml" value="455">Mighty Mini with Lamb<br>
+					<input type="radio" name="food" id="sg_rm_m" value="365">Mmillennia with Beef<br>
+					<input type="radio" name="food" id="sg_rm_ss" value="345">Sunday Sunrise with Lamb<br>
+					<input type="radio" name="food" id="sg_rm_wb" value="420">Wee Bit with Bison<br>
+					<input type="radio" name="food" id="sg_rm_wc" value="345">Wolf Cub with Bison<br>
+					<input type="radio" name="food" id="sg_rm_wk" value="350">Wolf King with Bison<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Seafood</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="sg_sea_ff" value="330">Fit and Fabulous Weight Control with Alaskan Pollock<br>
+					<input type="radio" name="food" id="sg_sea_hpcws" value="345">High Protein with Cold Water Salmon<br>
+					<input type="radio" name="food" id="sg_sea_hb" value="345">Holistique Blendz with Ocean Fish Meal<br>
+					<input type="radio" name="food" id="sg_sea_lw" value="360">Leaping Waters with Salmon<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="wellness foods">
+		<p class="the-header">Wellness</p>
+		<div>
+			<fieldset class="block radio-inline">
+				<legend class="small">Complete Health</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="well_ch_dco" value="434">Deboned Chicken & Oatmeal<br>
+					<input type="radio" name="food" id="well_ch_gfdccm" value="386">Grain-Free Deboned Chicken & Chicken Meal<br>
+					<input type="radio" name="food" id="well_ch_gfllm" value="422">Grain-Free Lamb & Lamb Meal<br>
+					<input type="radio" name="food" id="well_ch_gflb" value="402">Grain-Free Large Breed<br>
+					<input type="radio" name="food" id="well_ch_gfp" value="490">Grain-Free Puppy<br>
+					<input type="radio" name="food" id="well_ch_gfsb" value="494">Grain-Free Small Breed<br>
+					<input type="radio" name="food" id="well_ch_gfwmfm" value="364">Grain-Free Whitefish & Menhaden Fish Meal<br>
+					<input type="radio" name="food" id="well_ch_hw" value="405">Healthy Weight<br>
+					<input type="radio" name="food" id="well_ch_lb" value="417">Lamb & Barley<br>
+					<input type="radio" name="food" id="well_ch_lb" value="340">Large Breed<br>
+					<input type="radio" name="food" id="well_ch_lbp" value="367">Large Breed Puppy<br>
+					<input type="radio" name="food" id="well_ch_p" value="450">Puppy<br>
+					<input type="radio" name="food" id="well_ch_s" value="416">Senior<br>
+					<input type="radio" name="food" id="well_ch_sbhw" value="341">Small Breed Healthy Weight<br>
+					<input type="radio" name="food" id="well_ch_sbp" value="489">Small Breed Puppy<br>
+					<input type="radio" name="food" id="well_ch_sbs" value="435">Small Breed Senior<br>
+					<input type="radio" name="food" id="well_ch_sbto" value="408">Small Breed Turkey & Oatmeal<br>
+					<input type="radio" name="food" id="well_ch_sbwsmp" value="474">Small Breed Whitefish, Salmon Meal & Peas<br>
+					<input type="radio" name="food" id="well_ch_tb" value="462">Toy Breed<br>
+					<input type="radio" name="food" id="well_ch_wfsp" value="435">Whitefish & Sweet Potato<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">CORE</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="well_c_lb" value="346">Large Breed<br>
+					<input type="radio" name="food" id="well_c_ocean" value="417">Ocean<br>
+					<input type="radio" name="food" id="well_c_o" value="421">Original<br>
+					<input type="radio" name="food" id="well_c_p" value="417">Puppy<br>
+					<input type="radio" name="food" id="well_c_rrot" value="423">RawRev Original + 100% Raw Turkey<br>
+					<input type="radio" name="food" id="well_c_" value="406">RawRev Small Breed + 100% Raw Turkey<br>
+					<input type="radio" name="food" id="well_c_rrwgl" value="387">RawRev Wild Game + 100% Raw Lamb<br>
+					<input type="radio" name="food" id="well_c_rf" value="360">Reduced Fat<br>
+					<input type="radio" name="food" id="well_c_sb" value="396">Small Breed Deboned Turkey, Turkey Meal and Chicken Meal<br>
+					<input type="radio" name="food" id="well_c_wg" value="388">Wild Game<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">Simple</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="well_s_do" value="450">Duck & Oatmeal<br>
+					<input type="radio" name="food" id="well_s_hw" value="394">Healthy Weight<br>
+					<input type="radio" name="food" id="well_s_lo" value="406">Lamb & Oatmeal<br>
+					<input type="radio" name="food" id="well_s_ssp" value="446">Salmon & Sweet Potato<br>
+					<input type="radio" name="food" id="well_s_sb" value="450">Small Breed<br>
+					<input type="radio" name="food" id="well_s_tp" value="430">Turkey & Potato<br>
+				</div>
+			</fieldset>
+			<fieldset class="block radio-inline">
+				<legend class="small">TruFood</legend>
+				<div class="shift">
+					<input type="radio" name="food" id="well_s_ccl" value="377">Chicken & Chicken Liver<br>
+					<input type="radio" name="food" id="well_s_lll" value="369">Lamb & Lamb Liver<br>
+					<input type="radio" name="food" id="well_s_p" value="395">Puppy<br>
+					<input type="radio" name="food" id="well_s_stl" value="380">Salmon & Turkey Liver<br>
+					<input type="radio" name="food" id="well_tf_sb" value="374">Small Breed<br>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<hr>
+	<div class="centered">
+		<div class="centered">
+			<fieldset class="block">
+				<legend>Select how to handle your dog's weight:</legend>
+				<label class="radio-inline">
+					<input type="radio" name="weight_ratio" id="weight_maintain" value="maintain" checked>Maintain
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="weight_ratio" id="weight_lose" value="lose">Lose
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="weight_ratio" id="weight_gain" value="gain">Gain
+				</label>
+			</fieldset>
+		</div>
+		<hr>
+		<div class="centered">
+			<fieldset class="block">
+				<legend>Select your dog's age:</legend>
+				<label class="radio-inline">
+					<input type="radio" name="age" id="puppy_0-4" value="puppy_0-4">Puppy 0-4 months
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="age" id="puppy_5-10" value="puppy_5-10">Puppy 5-10 months
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="age" id="adult" value="adult" checked>Adult 10+ months
+				</label>
+			</fieldset>
+		</div>
+		<hr>
+		<p>Enter your dog's weight:</p>
+		<input type="text" id="weight" name="dog_weight" placeholder="weight in pounds...">
+		<button type="submit">Calculate</button>
+		<p>Feed your dog this many cups per day:<p>
+		<hr>
+		<label id="cups">0</label>
+	</div>
+	
+<script>
+var cups = document.querySelector('#cups');
+var buttons = document.querySelector('button');
+var weight = document.querySelector('#weight');
+var foodOpt;
+var calories;
+	
+(function (){
+	var radios = document.getElementsByName('food');
+	for(var i = 0; i < radios.length; i++){
+		radios[i].onclick = function(){
+			calories = this.value;
+		}
+	}
+	return calories;
+})();
+	
+function calcWeightMain() {
+	var mainWeight = Number(weight.value);
+	mainWeight = 91 * (mainWeight / 2.2) ** (3/4);
+	return mainWeight;
+}
 
-<script src="dog-food.js"></script>
-<script src="datalist-polyfill.js"></script>
+function calcWeightLose() {
+	var loseWeight = Number(weight.value);
+	loseWeight = 70 * (loseWeight / 2.2) ** (3/4);
+	return loseWeight;
+}
+
+function calcWeightGain() {
+	var gainWeight = Number(weight.value);
+	gainWeight = 112 * (gainWeight / 2.2) ** (3/4);
+	return gainWeight;
+}
+
+function calcCalories() {
+	calories = Number(calories);
+	return calories;
+}
+
+function adjustCups() {
+	if (document.getElementById('weight_maintain').checked == true && document.getElementById('puppy_0-4').checked == true) {
+		var displayCal = (calcWeightMain() / calcCalories()) * 2;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_maintain').checked == true && document.getElementById('puppy_5-10').checked == true) {
+		var displayCal = (calcWeightMain() / calcCalories()) * 1.5;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_maintain').checked == true && document.getElementById('adult').checked == true) {
+		var displayCal = (calcWeightMain() / calcCalories());
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_lose').checked == true && document.getElementById('puppy_0-4').checked == true) {
+		var displayCal = (calcWeightLose() / calcCalories()) * 2;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_lose').checked == true && document.getElementById('puppy_5-10').checked == true) {
+		var displayCal = (calcWeightLose() / calcCalories()) * 1.5;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_lose').checked == true && document.getElementById('adult').checked == true) {
+		var displayCal = (calcWeightLose() / calcCalories());
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_gain').checked == true && document.getElementById('puppy_0-4').checked == true) {
+		var displayCal = (calcWeightGain() / calcCalories()) * 2;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_gain').checked == true && document.getElementById('puppy_5-10').checked == true) {
+		var displayCal = (calcWeightGain() / calcCalories()) * 1.5;
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+	else if (document.getElementById('weight_gain').checked == true && document.getElementById('adult').checked == true) {
+		var displayCal = (calcWeightGain() / calcCalories());
+		displayCal = displayCal.toFixed(2);
+		cups.textContent = displayCal;
+	}
+}
+
+buttons.addEventListener('click', adjustCups);
+</script>
 </body>
-</html>	
+</html
