@@ -1,0 +1,352 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+	background: #f7f7f7;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+p {
+	font-size: 1.5em;
+}
+
+a, a:link, a:hover, a:visited, a:active {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.tooltips {
+  position: relative;
+  display: inline;
+}
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #FFFFFF;
+  background: violet;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+a.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid violet;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+a:hover.tooltips span {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+}
+
+button {
+	margin-top: 1em;
+	background-color: violet;
+	padding: 0.5em 1em;
+	border-radius: 10px;
+}
+
+header {
+	background: violet;
+	border: 1px solid violet;
+	padding-bottom: 10px;
+	margin-bottom: 1em;
+}
+
+footer {
+	background: violet;
+	border: 1px solid violet;
+	padding: 32px;
+}
+
+label {
+	font-weight: normal;
+}
+
+label:hover {
+	color: violet;
+}
+
+/* Glyph, by Harry Roberts */
+
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #ccc;
+    color: #ccc;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #f7f7f7;
+}
+
+.radio {
+	margin-left: 1.25%;
+}
+
+.row p {
+	margin-left: 1%;
+}
+
+.col-lg-3,
+.col-lg-4,
+.col-md-4,
+.col-sm-4,
+.col-sm-6,
+.col-xs-12 {
+	margin-bottom: 2em;
+}
+
+.small {
+	font-size: 1.2em;
+}
+
+.tiny {
+	font-size: 12px;
+	font-style: italic;
+}
+
+.bottom {
+	margin-bottom: 2em;
+}
+
+.centered {
+	text-align: center;
+}
+
+.the-header {
+	text-align: center;
+	margin-bottom: 2em;
+	margin-top: 1em;
+}
+
+.foot {
+	padding-right: 3%;
+	text-align: right;
+	font-size: 12px;
+}
+
+.content {
+	color: white;
+	text-shadow: 0px 4px 3px  rgba(0,0,0,0.4),
+	             0px 8px 13px rgba(0,0,0,0.1),
+	             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.sm-paw {
+	width: 16px;
+	height: 16px;
+}
+
+.med-paw {
+	width: 22px;
+	height: 22px;
+}
+
+.lg-paw {
+	width: 28px;
+	height: 28px;
+}
+
+.fa-arrows-h {
+	color: gold;
+}
+
+.fa-long-arrow-down {
+	color: red;
+}
+
+.fa-long-arrow-up {
+	color: green;
+}
+
+._american-journey {
+	background: #24C7BC;
+	background: linear-gradient(#24C7BC, #E0EB15);
+	border: 1px solid #24C7BC;
+}
+
+._blue-buffalo {
+	background: #2045E8;
+	background: linear-gradient(#2045E8, #53BFF5);
+	border: 1px solid #2045E8;
+}
+
+._canidae {
+	background: #CCCC7A;
+	background: linear-gradient(#CCCC7A 55%, #000);
+	border: 1px solid #CCCC7A;
+}
+
+._diamond {
+	background: #D1C75C;
+	background: linear-gradient(#D1C75C 60%, #303030);
+	border: 1px solid #D1C75C;
+}
+
+._earthborn {
+	background: #67A822;
+	background: linear-gradient(#67A822, #0F94D6);
+	border: 1px solid #0F94D6;
+}
+
+._eukanuba {
+	background: #FA05BD;
+	background: linear-gradient(#FA05BD 60%, #2E105E);
+	border: 1px solid #FA05BD;
+}
+
+._hills {
+	background: #C70E24;
+	background: linear-gradient(#C70E24 50%, #480EC7 20%);
+	border: 1px solid #C70E24;
+}
+
+._holistic-select {
+	background: #4A240A;
+	background: linear-gradient(#4A240A 60%, #FFF);
+	border: 1px solid #4A240A;
+}
+
+._iams {
+	background: #35B840;
+	background: linear-gradient(#35B840 60%, #333);
+	border: 1px solid #35B840;
+}
+
+._merrick {
+	background: #52360F;
+	background: linear-gradient(#52360F, #8A704D);
+	border: 1px solid #52360F;
+}
+
+._natural-balance {
+	background: #2045E8;
+	background: linear-gradient(#2045E8 40%, #E89C20);
+	border: 1px solid #2045E8;
+}
+
+._natures-recipe {
+	background: #E89C20;
+	background: linear-gradient(#E89C20 40%, #2045E8);
+	border: 1px solid #E89C20;
+}
+
+._natures-variety {
+	background: #52360F;
+	background: linear-gradient(#52360F, #E89C20);
+	border: 1px solid #52360F;
+}
+
+._nutro {
+	background: #7A6542;
+	background: linear-gradient(#7A6542, #F2B655);
+	border: 1px solid #7A6542;
+}
+
+._pedigree {
+	background: orange;
+	background: linear-gradient(orange 55%, blue);
+	border: 1px solid orange;
+}
+
+._purina {
+	background: #F5100C;
+	background: linear-gradient(#F5100C 60%, #FFF);
+	border: 1px solid #F5100C;	
+}
+
+._rachael-ray {
+	background: #7A4521;
+	background: linear-gradient(#7A4521 40%, #74B512);
+	border: 1px solid #7A4521;
+}
+
+._royal-canin {
+	background: #F5100C;
+	background: linear-gradient(#F5100C 60%, #F2B655);
+	border: 1px solid #F5100C;
+}
+
+._solid-gold {
+	background: #FAAC05;
+	background: linear-gradient(#FAAC05 50%, #000);
+	border: 1px solid #FAAC05;
+}
+
+._sportmix {
+	background: #000;
+	background: linear-gradient(#000 20%, #FF0000);
+	border: 1px solid #FF0000;
+}
+
+._taste-wild {
+	background: #060038;
+	background: linear-gradient(#060038 55%, #000);
+	border: 1px solid white;
+}
+
+._victor {
+	background: #000;
+	background: linear-gradient(#000 35%, #A39B45);
+	border: 1px solid #A39B45;
+}
+
+._wellness {
+	background: #8624C7;
+	background: linear-gradient(#8624C7 60%, #FFF);
+	border: 1px solid #8624C7;
+}
+
+._whole-earth {
+	background: #7A4826;
+	background: linear-gradient(#7A4826, #88B83D);
+	border: 1px solid #FF0000;
+}
+
+._zignature {
+	background: #72267A;
+	background: linear-gradient(#72267A, #D6C82D);
+	border: 1px solid #D6C82D;
+}
+
+#cups {
+	margin-bottom: 2em;
+	font-size: 1.5em;
+	color: violet;
+}
