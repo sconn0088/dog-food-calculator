@@ -1550,19 +1550,19 @@ var calories;
 	
 function calcWeightMain() {
 	var mainWeight = Number(weight.value);
-	mainWeight = 91 * (mainWeight / 2.2) ** (3/4);
+	mainWeight = Math.pow((mainWeight / 2.2), (3/4)) * 91;
 	return mainWeight;
 }
 
 function calcWeightLose() {
 	var loseWeight = Number(weight.value);
-	loseWeight = 70 * (loseWeight / 2.2) ** (3/4);
+	loseWeight = Math.pow((loseWeight / 2.2), (3/4)) * 70;
 	return loseWeight;
 }
 
 function calcWeightGain() {
 	var gainWeight = Number(weight.value);
-	gainWeight = 112 * (gainWeight / 2.2) ** (3/4);
+	gainWeight = Math.pow((gainWeight / 2.2), (3/4)) * 112;
 	return gainWeight;
 }
 
